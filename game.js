@@ -52,7 +52,7 @@ function DisplayGame() {
     let results = document.querySelector(".results")
     const cells = document.querySelectorAll('.cell');
     const startButton = document.querySelector(".reset");
-
+    const lets = document.querySelector(".lets");
     const renderBoard = () => {
         const board = GameBoard.getBoard();
 
@@ -72,6 +72,7 @@ function DisplayGame() {
         if (winner) {
             results.textContent = (winner === "Tie" ? "It's a tie" : `${winner} is the winner!`);
             startButton.style.display = "inline-block";
+            lets.style.display = "none";
             return;
         }
         GameController.switchPlayer();
@@ -86,6 +87,7 @@ function DisplayGame() {
         results.textContent = "";
         renderBoard();
         startButton.style.display = "none";
+        lets.style.display = "flex";
     });
     renderBoard();
 }
